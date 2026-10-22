@@ -7,7 +7,8 @@ Situs: https://harisy.github.io/
 
 - `_posts/` — tulisan, satu berkas per postingan (`YYYY-MM-DD-judul.md`)
 - `assets/images/` — gambar buatan sendiri (diagram SVG)
-- `_includes/head.html` dan `custom-head.html` — head tema minima plus MathJax untuk rumus
+- `_includes/` — `head.html` + `custom-head.html` (MathJax) dan `footer.html` (kartu profil penulis)
+- `about.md` — halaman profil penulis (`/tentang/`)
 - `_config.yml`, `index.md` — konfigurasi dan halaman depan
 
 ## Tulisan

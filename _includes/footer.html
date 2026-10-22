@@ -1,0 +1,17 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+  <div class="wrapper">
+    {%- unless page.url == "/tentang/" -%}
+    <div class="author-card">
+      <img class="author-avatar" src="https://github.com/{{ site.github_username }}.png?size=160" alt="Foto profil {{ site.author.name }}" width="80" height="80">
+      <div class="author-info">
+        <p class="author-label">Ditulis oleh</p>
+        <p class="author-name p-name"><a href="{{ "/tentang/" | relative_url }}">{{ site.author.name }}</a></p>
+        <p class="author-bio">Mahasiswa S2 TI UNPAM. Menulis catatan dari mata kuliah Advanced Computer Vision untuk teman-teman sesama mahasiswa.</p>
+        <p class="author-links"><a href="{{ "/tentang/" | relative_url }}">Profil</a> &middot; <a class="u-url" href="https://github.com/{{ site.github_username }}">GitHub</a> &middot; <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io">Repositori</a></p>
+      </div>
+    </div>
+    {%- endunless -%}
+    <p class="footer-note">&copy; {{ "now" | date: "%Y" }} {{ site.author.name }} &middot; {{ site.title | escape }}</p>
+  </div>
+</footer>

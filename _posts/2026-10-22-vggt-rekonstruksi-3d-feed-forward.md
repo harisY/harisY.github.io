@@ -10,7 +10,7 @@ description: "Review VGGT, Best Paper CVPR 2025: satu transformer feed-forward y
 
 Kalau kamu pernah merekonstruksi 3D dari kumpulan foto dengan COLMAP, alurnya kira-kira begini: cocokkan fitur antar gambar, triangulasi titik, lalu jalankan *bundle adjustment* (BA), yaitu optimasi iteratif yang menyetel pose kamera dan titik 3D supaya error reproyeksinya sekecil mungkin. Hasilnya akurat, tetapi alurnya panjang dan lambat.
 
-Paper yang kita bahas, **VGGT**, bertanya: bisakah semua itu dikerjakan oleh satu jaringan saraf dalam sekali jalan (*feed-forward*)? Menurut penulisnya, bisa. Dari satu, beberapa, bahkan ratusan gambar, VGGT langsung memprediksi parameter kamera, depth map, point map, dan track titik 3D. Hasilnya sering mengungguli metode yang masih memakai optimasi pasca-proses. Halaman resmi CVPR 2025 mencantumkan paper ini sebagai Best Paper.
+**VGGT** bertanya: bisakah semua itu dikerjakan oleh satu jaringan saraf dalam sekali jalan (*feed-forward*)? Menurut penulisnya, bisa. Dari satu, beberapa, bahkan ratusan gambar, VGGT langsung memprediksi parameter kamera, depth map, point map, dan track titik 3D. Hasilnya sering mengungguli metode yang masih memakai optimasi pasca-proses. Halaman resmi CVPR 2025 mencantumkan paper ini sebagai Best Paper.
 
 Buat mahasiswa Computer Vision, paper ini layak dibaca karena dua hal. Arsitekturnya sederhana (transformer standar dengan satu modifikasi). Dan menurut saya, ia menunjukkan arah 3D vision yang sama dengan NLP dan vision 2D: satu model besar yang dilatih pada banyak data, lalu dipakai ulang untuk banyak tugas.
 
@@ -19,9 +19,7 @@ Buat mahasiswa Computer Vision, paper ini layak dibaca karena dua hal. Arsitektu
 - **Judul:** VGGT: Visual Geometry Grounded Transformer
 - **Penulis:** Jianyuan Wang, Minghao Chen, Nikita Karaev, Andrea Vedaldi, Christian Rupprecht, David Novotny (Visual Geometry Group, University of Oxford, dan Meta AI)
 - **Venue:** Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2025, hlm. 5294–5306
-- **Tautan:** [halaman CVF (open access)](https://openaccess.thecvf.com/content/CVPR2025/html/Wang_VGGT_Visual_Geometry_Grounded_Transformer_CVPR_2025_paper.html), [arXiv:2503.11651](https://arxiv.org/abs/2503.11651), DOI 10.1109/CVPR52734.2025.00499 (DOI saya ambil dari [ML Anthology](https://mlanthology.org/cvpr/2025/wang2025cvpr-vggt/), bukan dari halaman CVF)
-
-Versi yang saya baca adalah PDF open access dari CVF beserta suplemennya. Angka di bawah memakai penomoran tabel dari PDF itu. Rujukan "Suplemen" berarti materi tambahan, bukan paper utama.
+- **Tautan:** [halaman CVF (open access)](https://openaccess.thecvf.com/content/CVPR2025/html/Wang_VGGT_Visual_Geometry_Grounded_Transformer_CVPR_2025_paper.html), [arXiv:2503.11651](https://arxiv.org/abs/2503.11651), [DOI 10.1109/CVPR52734.2025.00499](https://doi.org/10.1109/CVPR52734.2025.00499)
 
 ## Latar belakang dan research gap
 
@@ -43,13 +41,11 @@ Menurut paper:
 **Versi sederhana.** Bayangkan kamu menaruh semua foto di satu meja dan menyuruh satu model melihat semuanya sekaligus. Setiap foto dipecah menjadi potongan kecil (*token*). Model lalu bergantian melakukan dua hal: memperhatikan isi satu foto saja, lalu memperhatikan hubungan antar semua foto. Di ujungnya, "kepala" khusus membaca hasilnya sebagai posisi kamera, kedalaman, dan titik 3D.
 
 ![Alur kerja VGGT]({{ "/assets/images/vggt-pipeline.svg" | relative_url }})
-<p class="caption">Diagram buatan saya berdasarkan Gambar 2 paper, bukan gambar asli paper.</p>
+<p class="caption">Diagram penulis, disusun dari Gambar 2 paper.</p>
 
 **Versi teknis.** Inputnya barisan gambar $$I_1,\dots,I_N$$. Untuk tiap gambar, jaringan memprediksi parameter kamera $$g_i\in\mathbb{R}^9$$ (kuaternion rotasi, translasi, dan *field of view*), depth map $$D_i$$, point map $$P_i$$, serta peta fitur $$T_i$$ untuk tracking (Persamaan 1 paper):
 
 $$f\big((I_i)_{i=1}^{N}\big) = (g_i, D_i, P_i, T_i)_{i=1}^{N}$$
-
-Hal-hal pentingnya:
 
 - **Tokenisasi dan token khusus.** Gambar dipecah menjadi token oleh DINO (Suplemen menyebut DINOv2; teks utama hanya menulis "DINO"). Tiap frame diberi satu *camera token* dan empat *register token*. Token frame pertama berbeda dari frame lain, dan itu yang membuat model tahu bahwa kamera pertama adalah kerangka acuan dunia.
 - **Alternating-Attention (AA).** Satu-satunya modifikasi terhadap transformer standar: lapisan *frame-wise* self-attention (token dalam satu gambar) bergantian dengan *global* self-attention (semua token dari semua gambar). Defaultnya 24 pasang lapisan. Tidak ada *cross-attention*.
@@ -76,7 +72,7 @@ Hal-hal pentingnya:
 | **VGGT (feed-forward)** | **85.3** | **88.2** | ~0.2s |
 | **VGGT + BA** | **93.5** | **91.8** | ~1.8s |
 
-Hasil lainnya, semuanya dari paper:
+Hasil lainnya:
 
 - **Depth multi-view, DTU (Tabel 2, metrik Overall, makin kecil makin baik):** VGGT 0.382 versus DUSt3R 1.741. Keduanya tidak memakai kamera ground truth.
 - **Point map, ETH3D (Tabel 3, Overall):** VGGT lewat depth + kamera 0.677, lewat point head 0.709, MASt3R 0.826, DUSt3R 1.005. Waktu VGGT ~0.2s.
@@ -92,16 +88,16 @@ Hasil lainnya, semuanya dari paper:
 - Pasca-proses BA masih memberi peningkatan (Bagian 4.1).
 - Keterbatasan (Suplemen, Lampiran F): tidak mendukung gambar fisheye atau panorama, performa turun pada rotasi input yang ekstrem, dan gagal pada deformasi non-rigid yang besar. Penulis menyarankan *finetuning* pada data target. Mereka juga mengakui global self-attention yang naif boros memori.
 
-**Pengamatan saya (interpretasi pribadi, bukan klaim paper):**
+**Pengamatan saya:**
 
 - Klaim "di bawah satu detik untuk ratusan gambar" (abstrak dan Gambar 1) perlu dibaca dengan hati-hati. Tabel B di Suplemen mencatat waktu backbone 1.04 detik untuk 50 frame, 3.12 detik untuk 100 frame, dan 8.75 detik untuk 200 frame, dengan memori puncak 40.63 GB pada 200 frame (H100, resolusi 336×518). Mungkin kondisi pengukurannya berbeda; paper tidak menjelaskannya.
 - Menurut saya, "mengungguli semua" tidak berlaku mutlak. Di Tabel 2, GeoMVSNet (dengan kamera ground truth) mencapai Overall 0.295 dan MASt3R 0.374, keduanya lebih baik daripada 0.382. Di Tabel A Suplemen, VGGT tanpa BA mendapat AUC@10 71.26, di bawah VGGSfMv2 (76.82); hanya VGGT + BA (84.91) yang unggul. Di Tabel 7, LVSM (PSNR 31.71) mengungguli VGGT (30.41), walau VGGT memakai data latih lebih sedikit dan tidak memakai kamera input.
 - Saya tidak menemukan eksperimen yang mengontrol data latih antar metode, jadi sebagian selisih bisa berasal dari skala data, bukan arsitektur.
 - Ablasi (Tabel 5 dan 6) hanya diuji pada satu benchmark (ETH3D) dengan satu metrik.
 - Biaya latih (64 A100, sembilan hari) sulit direproduksi di laboratorium kampus.
-- Bagian yang saya kurang yakin: alasan mengapa loss depth hanya menyumbang sedikit (Tabel 6) tidak dijelaskan mendalam oleh paper.
+- Paper tidak menjelaskan mengapa loss depth hanya menyumbang sedikit (Tabel 6), dan saya sendiri belum yakin penyebabnya.
 
-## Ide riset lanjutan (ini ide saya, bukan fakta dari paper)
+## Ide riset lanjutan (bukan temuan paper)
 
 1. **Uji ketahanan di domain sendiri.** Bangun benchmark kecil (foto drone, ruang laboratorium, citra endoskopi) dan ukur kapan VGGT gagal, terutama pada rotasi ekstrem dan lensa lebar yang diakui paper sebagai kelemahan.
 2. **VGGT yang lebih hemat.** Coba *token merging*/pruning atau attention jarang pada global attention, lalu bandingkan waktu dan memori dengan Tabel B. Paper sendiri menyebut teknik akselerasi ala LLM sebagai arah yang mungkin.
@@ -111,7 +107,7 @@ Hasil lainnya, semuanya dari paper:
 
 ## Ketersediaan kode dan model
 
-Paper menyatakan kode dan model tersedia di [github.com/facebookresearch/vggt](https://github.com/facebookresearch/vggt). Informasi berikut berasal dari README repo tersebut (bukan dari paper) dan bisa berubah:
+Kode dan model tersedia di [github.com/facebookresearch/vggt](https://github.com/facebookresearch/vggt). Dua poin berikut berasal dari README repo, bukan dari paper:
 
 - Bobot `facebook/VGGT-1B` diunduh otomatis dari Hugging Face; ada demo Gradio dan ekspor ke format COLMAP.
 - Lisensi diatur khusus lewat `LICENSE.txt` di repo. README menyebut hanya checkpoint `VGGT-1B-Commercial` yang boleh dipakai komersial dan perlu mengisi formulir; checkpoint asli untuk non-komersial. Baca lisensi aslinya sebelum memakai di luar riset.

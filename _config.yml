@@ -10,6 +10,11 @@ baseurl: ""                       # repo USERNAME.github.io dilayani dari root
 author:
   name: Abdul Haris
 
+github_username: harisY
+
+header_pages:
+  - about.md
+
 markdown: kramdown
 
 exclude:
