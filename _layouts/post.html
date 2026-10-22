@@ -4,7 +4,8 @@ layout: default
 <article class="post h-entry">
   <header class="wrap-read post-header">
     <p class="entry-meta">
-      {%- include date-id.html date=page.date -%}, {% include reading-time.html content=content -%}
+      {%- include date-id.html date=page.date -%}
+      <span class="entry-read">{%- include reading-time.html content=content -%}</span>
     </p>
     <h1 class="post-title p-name">{{ page.title | escape }}</h1>
     {%- if page.description -%}<p class="post-standfirst">{{ page.description | escape }}</p>{%- endif -%}

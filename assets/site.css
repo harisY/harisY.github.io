@@ -118,7 +118,8 @@ img, svg { max-width: 100%; }
 }
 .section-title::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 
-.entry-meta { margin: 0 0 0.6rem; font-size: 0.9rem; color: var(--muted); }
+.entry-meta { display: flex; flex-wrap: wrap; align-items: center; margin: 0 0 0.6rem; font-size: 0.9rem; color: var(--muted); }
+.entry-read { margin-left: 0.8rem; padding-left: 0.8rem; border-left: 1px solid var(--rule); line-height: 1.2; }
 
 .featured { max-width: 46rem; }
 .featured-title {
@@ -155,7 +156,8 @@ img, svg { max-width: 100%; }
 .post-standfirst { margin: 0 0 1.25rem; font-family: var(--font-read); font-size: 1.25rem; line-height: 1.55; color: var(--muted); }
 .post-header .tags { margin-bottom: 0; }
 
-.post-content { padding-top: 2.5rem; font-family: var(--font-read); font-size: 1.1875rem; line-height: 1.72; }
+.post-content { padding-top: 2.5rem; font-family: var(--font-read); font-size: 1.1875rem; line-height: 1.72; overflow-wrap: anywhere; }
+.post-content table { overflow-wrap: normal; }
 .post-content > :first-child { margin-top: 0; }
 .post-content p, .post-content ul, .post-content ol { margin: 0 0 1.25rem; }
 .post-content li { margin-bottom: 0.45rem; }

@@ -22,7 +22,8 @@ layout: default
   <h2 class="section-title" id="terbaru-judul">Tulisan terbaru</h2>
   <article class="featured">
     <p class="entry-meta">
-      {%- include date-id.html date=latest.date -%}, {% include reading-time.html content=latest.content -%}
+      {%- include date-id.html date=latest.date -%}
+      <span class="entry-read">{%- include reading-time.html content=latest.content -%}</span>
     </p>
     <h3 class="featured-title"><a href="{{ latest.url | relative_url }}">{{ latest.title | escape }}</a></h3>
     <p class="featured-desc">{{ latest.description | escape }}</p>
@@ -57,7 +58,9 @@ layout: default
   </ul>
 </section>
 
-<section class="wrap section author-strip">
-  <img class="avatar" src="https://github.com/{{ site.github_username }}.png?size=120" alt="Foto profil {{ site.author.name }}" width="56" height="56" loading="lazy">
-  <p>Ditulis oleh <strong>{{ site.author.name }}</strong>, mahasiswa S2 TI UNPAM. <a href="{{ '/tentang/' | relative_url }}">Lihat profil</a>.</p>
+<section class="wrap section">
+  <div class="author-strip">
+    <img class="avatar" src="https://github.com/{{ site.github_username }}.png?size=120" alt="Foto profil {{ site.author.name }}" width="56" height="56" loading="lazy">
+    <p>Ditulis oleh <strong>{{ site.author.name }}</strong>, mahasiswa S2 TI UNPAM. <a href="{{ '/tentang/' | relative_url }}">Lihat profil</a>.</p>
+  </div>
 </section>
