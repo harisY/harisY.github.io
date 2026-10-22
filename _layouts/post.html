@@ -6,17 +6,32 @@ layout: default
     <p class="entry-meta">
       {%- include date-id.html date=page.date -%}
       <span class="entry-read">{%- include reading-time.html content=content -%}</span>
+      {%- if page.updated -%}<span class="entry-read">Diperbarui {% include date-id.html date=page.updated %}</span>{%- endif -%}
     </p>
     <h1 class="post-title p-name">{{ page.title | escape }}</h1>
     {%- if page.description -%}<p class="post-standfirst">{{ page.description | escape }}</p>{%- endif -%}
     {%- include tags.html tags=page.tags -%}
   </header>
 
+  <div class="wrap-read">
+    <nav class="toc" id="toc" aria-label="Daftar isi" hidden>
+      <details open>
+        <summary>Daftar isi</summary>
+        <ol></ol>
+      </details>
+    </nav>
+  </div>
+
   <div class="wrap-read post-content e-content">
     {{ content }}
   </div>
 
   <footer class="wrap-read post-end">
+    <details class="cite">
+      <summary>Cara mengutip tulisan ini</summary>
+      <p>{{ site.author.name }}. ({{ page.date | date: "%Y" }}). <em>{{ page.title | escape }}</em>. {{ site.title | escape }}. {{ page.url | absolute_url }}</p>
+    </details>
+
     <div class="author-box">
       <img class="avatar" src="https://github.com/{{ site.github_username }}.png?size=160" alt="Foto profil {{ site.author.name }}" width="64" height="64" loading="lazy">
       <div>
@@ -24,6 +39,25 @@ layout: default
         <p class="author-box-bio">Mahasiswa S2 TI UNPAM. Menulis catatan dari mata kuliah Advanced Computer Vision untuk teman-teman sesama mahasiswa.</p>
       </div>
     </div>
-    <p><a class="text-link" href="{{ '/' | relative_url }}">Semua tulisan</a></p>
+
+    {%- if page.previous or page.next -%}
+    <nav class="post-nav" aria-label="Tulisan lain">
+      {%- if page.previous -%}
+      <a class="post-nav-link" href="{{ page.previous.url | relative_url }}">
+        <span class="post-nav-label">Lebih baru</span>
+        <span class="post-nav-title">{{ page.previous.title | escape }}</span>
+      </a>
+      {%- endif -%}
+      {%- if page.next -%}
+      <a class="post-nav-link" href="{{ page.next.url | relative_url }}">
+        <span class="post-nav-label">Lebih lama</span>
+        <span class="post-nav-title">{{ page.next.title | escape }}</span>
+      </a>
+      {%- endif -%}
+    </nav>
+    {%- endif -%}
+
+    <p><a class="text-link" href="{{ '/' | relative_url }}">Semua tulisan</a> dan <a class="text-link" href="{{ '/arsip/' | relative_url }}">arsip per topik</a></p>
   </footer>
 </article>
+<script src="{{ '/assets/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

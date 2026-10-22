@@ -80,7 +80,7 @@ test_base  = OxfordIIITPet(root=DATA_DIR, split="test",     target_types="catego
 
 Pada konfigurasi ringan, saya ambil 10 ras pertama menurut urutan alfabet: Abyssinian, American Bulldog, American Pit Bull Terrier, Basset Hound, Beagle, Bengal, Birman, Bombay, Boxer, dan British Shorthair. Jadi ada 5 ras kucing dan 5 ras anjing. Dari tiap ras diambil 40 gambar latih dan 30 gambar test secara acak dengan seed tetap, sehingga totalnya 400 gambar latih dan 300 gambar test.
 
-![Contoh gambar dari tiap kelas]({{ "/assets/images/01_contoh_data.png" | relative_url }})
+![Contoh gambar dari tiap kelas]({{ "/assets/images/01_contoh_data.webp" | relative_url }}){: width="1419" height="652" loading="lazy"}
 
 ## Langkah implementasi
 
@@ -166,7 +166,7 @@ Cara membaca metriknya:
 - **Macro-F1**: rata-rata F1 per kelas, dengan bobot yang sama untuk semua kelas. F1 adalah rata-rata harmonik precision dan recall.
 - **Confusion matrix**: baris adalah label sebenarnya, kolom adalah prediksi. Angka di luar diagonal menunjukkan kelas mana yang tertukar.
 
-![Kurva loss dan accuracy]({{ "/assets/images/02_kurva_training.png" | relative_url }})
+![Kurva loss dan accuracy]({{ "/assets/images/02_kurva_training.webp" | relative_url }}){: width="1089" height="384" loading="lazy"}
 
 Perhatikan sumbu *accuracy* di grafik kanan. Rentangnya hanya 0,865 sampai 0,890, jadi kenaikannya terlihat curam padahal selisihnya tipis. Hampir seluruh lompatan terjadi di epoch pertama (dari 0,113 ke 0,863).
 
@@ -176,7 +176,7 @@ Beberapa hal yang menurut saya penting saat membaca hasil ini:
 - **Satu run, tanpa interval kepercayaan.** Dengan 300 gambar test, ketidakpastian accuracy sekitar ±3,5 poin persentase (perkiraan binomial 95%). Selisih antar epoch (0,887 ke 0,890) lebih kecil dari itu, jadi tidak bisa disimpulkan bahwa epoch 3 "lebih baik".
 - **Test set dipakai untuk memantau tiap epoch.** Saya tidak memilih model atau mengubah hyperparameter berdasarkan angka itu (hanya satu konfigurasi dan satu run). Untuk eksperimen serius, sediakan set validasi terpisah.
 
-![Confusion matrix]({{ "/assets/images/03_confusion_matrix.png" | relative_url }})
+![Confusion matrix]({{ "/assets/images/03_confusion_matrix.webp" | relative_url }}){: width="770" height="695" loading="lazy"}
 
 Confusion matrix menunjukkan kesalahannya terkonsentrasi di ras anjing yang mirip:
 
@@ -201,11 +201,11 @@ def predict_top3(pil_img):
 
 `softmax` mengubah skor mentah menjadi probabilitas, dan `topk(3)` mengambil tiga kandidat teratas. Untuk satu gambar test Abyssinian, hasilnya: Abyssinian (0,212), Bengal (0,101), American Pit Bull Terrier (0,093). Jawabannya benar, tetapi probabilitasnya rendah, sejalan dengan pengamatan loss di atas.
 
-![Prediksi acak pada data test]({{ "/assets/images/04_prediksi_acak.png" | relative_url }})
+![Prediksi acak pada data test]({{ "/assets/images/04_prediksi_acak.webp" | relative_url }}){: width="1485" height="842" loading="lazy"}
 
 Tujuh dari delapan gambar acak benar (hijau). Satu yang salah adalah Pit Bull Terrier yang ditebak American Bulldog.
 
-![Contoh kesalahan prediksi]({{ "/assets/images/05_kesalahan.png" | relative_url }})
+![Contoh kesalahan prediksi]({{ "/assets/images/05_kesalahan.webp" | relative_url }}){: width="1485" height="842" loading="lazy"}
 
 Contoh kesalahan memperlihatkan tiga Abyssinian yang ditebak British Shorthair, dan lima Pit Bull Terrier yang ditebak American Bulldog. Sebagian gambar ini memang sulit, bahkan untuk mata manusia yang tidak hafal ciri ras. Itu juga alasan evaluasi tidak boleh berhenti di angka akurasi: melihat contoh salahnya memberi petunjuk apakah masalahnya di model atau di data.
 

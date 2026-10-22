@@ -8,7 +8,9 @@ Situs: https://harisy.github.io/
 - `_posts/` — tulisan, satu berkas per postingan (`YYYY-MM-DD-judul.md`)
 - `_layouts/` dan `_includes/` — tata letak sendiri (halaman depan, postingan, header, footer, grid patch di hero, MathJax)
 - `assets/site.css` — seluruh gaya situs (mode terang dan gelap otomatis)
-- `assets/images/` — gambar buatan sendiri (diagram SVG)
+- `assets/images/` — diagram SVG, gambar hasil (WebP), favicon, dan kartu pratinjau sosial
+- `assets/site.js` — daftar isi, anchor judul, dan tombol salin kode di halaman tulisan
+- `arsip.md`, `404.html`, `robots.txt`, `LICENSE.md` — arsip per topik, halaman 404, robots, dan lisensi
 - `notebook/` — notebook tutorial SAM 2.1 (bisa dibuka di Colab)
 - `about.md` — halaman profil penulis (`/tentang/`)
 - `_config.yml`, `index.md` — konfigurasi dan teks hero halaman depan

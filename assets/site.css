@@ -145,7 +145,10 @@ img, svg { max-width: 100%; }
 .featured-desc { margin: 0 0 1rem; font-family: var(--font-read); font-size: 1.2rem; line-height: 1.6; color: var(--muted); }
 
 .tags { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.tags li { font-size: 0.8rem; color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; padding: 0.1rem 0.55rem; }
+.tags li { font-size: 0.8rem; color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; }
+.tags a { display: block; padding: 0.1rem 0.55rem; color: inherit; text-decoration: none; }
+.tags li:hover { border-color: var(--accent); }
+.tags a:hover { color: var(--accent); }
 
 .entry-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
 .entry { display: grid; gap: 0.25rem 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
@@ -232,3 +235,51 @@ img, svg { max-width: 100%; }
 .footer-base { margin-top: 2rem; font-size: 0.85rem; color: var(--muted); }
 .footer-base p { margin: 0; }
 @media (min-width: 40rem) { .footer-inner { grid-template-columns: 1fr auto; align-items: start; } }
+.footer-base a { color: inherit; text-underline-offset: 0.2em; }
+.footer-base a:hover { color: var(--ink); }
+
+/* Nama brand: versi pendek di layar sempit */
+.brand-short { display: none; }
+@media (max-width: 30rem) {
+  .brand-full { display: none; }
+  .brand-short { display: inline; }
+}
+
+/* Daftar isi, anchor judul, dan tombol salin kode */
+.toc { margin: 2rem 0 0; font-family: var(--font-ui); }
+.toc[hidden] { display: none; }
+.toc details { border: 1px solid var(--rule); border-radius: 6px; padding: 0.75rem 1rem; background: var(--surface); }
+.toc summary { cursor: pointer; font-weight: 600; }
+.toc ol { margin: 0.75rem 0 0; padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.5; }
+.toc li { margin-bottom: 0.3rem; break-inside: avoid; }
+.toc a { color: var(--ink); text-underline-offset: 0.2em; }
+.toc a:hover { color: var(--accent); }
+@media (min-width: 40rem) { .toc ol { columns: 2; column-gap: 2rem; } }
+
+.post-content h2, .post-content h3 { scroll-margin-top: 1.5rem; }
+.post-content .anchor { margin-left: 0.4em; color: var(--muted); text-decoration: none; opacity: 0; font-weight: 400; }
+.post-content h2:hover .anchor, .post-content h3:hover .anchor, .post-content .anchor:focus-visible { opacity: 1; }
+.post-content div.highlighter-rouge { position: relative; }
+.copy-btn {
+  position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.2rem 0.6rem;
+  font: 500 0.75rem var(--font-ui); color: var(--muted); background: var(--bg);
+  border: 1px solid var(--rule); border-radius: 4px; cursor: pointer;
+}
+.copy-btn:hover { color: var(--ink); border-color: var(--muted); }
+
+/* Akhir tulisan: kutipan dan navigasi antar tulisan */
+.cite { margin: 0 0 1.5rem; font-size: 0.95rem; color: var(--muted); }
+.cite summary { cursor: pointer; }
+.cite p { margin: 0.6rem 0 0; overflow-wrap: anywhere; }
+.post-nav { display: grid; gap: 1rem; margin: 0 0 2rem; }
+.post-nav-link { display: block; padding: 1rem 1.1rem; border: 1px solid var(--rule); border-radius: 6px; text-decoration: none; }
+.post-nav-link:hover { border-color: var(--accent); }
+.post-nav-label { display: block; font-size: 0.8rem; color: var(--muted); }
+.post-nav-title { display: block; margin-top: 0.15rem; font-weight: 600; line-height: 1.35; }
+@media (min-width: 40rem) { .post-nav { grid-template-columns: 1fr 1fr; } }
+
+/* Halaman 404 dan arsip */
+.error-page { padding-top: 4rem; padding-bottom: 4rem; }
+.error-page p { margin: 0 0 1.5rem; }
+.topic-index { margin-bottom: 2rem; }
+.post-content .topic-index a { color: inherit; }

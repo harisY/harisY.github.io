@@ -40,7 +40,7 @@ Menurut paper:
 
 **Versi sederhana.** Bayangkan kamu menaruh semua foto di satu meja dan menyuruh satu model melihat semuanya sekaligus. Setiap foto dipecah menjadi potongan kecil (*token*). Model lalu bergantian melakukan dua hal: memperhatikan isi satu foto saja, lalu memperhatikan hubungan antar semua foto. Di ujungnya, "kepala" khusus membaca hasilnya sebagai posisi kamera, kedalaman, dan titik 3D.
 
-![Alur kerja VGGT]({{ "/assets/images/vggt-pipeline.svg" | relative_url }})
+![Alur kerja VGGT]({{ "/assets/images/vggt-pipeline.svg" | relative_url }}){: width="980" height="395" loading="lazy"}
 <p class="caption">Diagram penulis, disusun dari Gambar 2 paper.</p>
 
 **Versi teknis.** Inputnya barisan gambar $$I_1,\dots,I_N$$. Untuk tiap gambar, jaringan memprediksi parameter kamera $$g_i\in\mathbb{R}^9$$ (kuaternion rotasi, translasi, dan *field of view*), depth map $$D_i$$, point map $$P_i$$, serta peta fitur $$T_i$$ untuk tracking (Persamaan 1 paper):

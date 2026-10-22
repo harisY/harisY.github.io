@@ -28,7 +28,7 @@ SAM pertama bekerja pada satu gambar. Untuk melacak objek di video, prosesnya ha
 
 ### Arsitektur
 
-![Diagram sederhana arsitektur SAM 2]({{ '/assets/images/sam2-arsitektur.svg' | relative_url }})
+![Diagram sederhana arsitektur SAM 2]({{ '/assets/images/sam2-arsitektur.svg' | relative_url }}){: width="820" height="400" loading="lazy"}
 
 Untuk setiap frame, alurnya sebagai berikut.
 
@@ -217,13 +217,13 @@ Saya menjalankan kode di atas di komputer lokal tanpa GPU (CPU, PyTorch 2.14, mo
 
 **Satu klik, tiga kandidat mask.**
 
-![Tiga kandidat mask SAM 2.1 untuk satu klik pada jendela truk]({{ '/assets/images/hasil-gambar.png' | relative_url }})
+![Tiga kandidat mask SAM 2.1 untuk satu klik pada jendela truk]({{ '/assets/images/hasil-gambar.webp' | relative_url }}){: width="1639" height="397" loading="lazy"}
 
 Saya mengklik kaca jendela truk. Model mengembalikan tiga kandidat dengan skor 0,952, 0,493, dan 0,042: sebagian jendela, seluruh jendela, dan hampir seluruh badan truk. Ketiganya masuk akal, karena satu titik memang ambigu: yang dimaksud bagian, benda, atau benda induknya? Skor mencerminkan keyakinan model terhadap kualitas mask, bukan maksud pengguna, jadi skor tertinggi belum tentu yang diinginkan.
 
 **Satu kotak, 200 frame.**
 
-![Mask SAM 2.1 mengikuti anak perempuan sepanjang klip]({{ '/assets/images/hasil-video.png' | relative_url }})
+![Mask SAM 2.1 mengikuti anak perempuan sepanjang klip]({{ '/assets/images/hasil-video.webp' | relative_url }}){: width="2189" height="281" loading="lazy"}
 
 Satu kotak di frame pertama cukup untuk melacak anak perempuan di seluruh 200 frame. Di frame 120 dan 160 ia berada dekat anak laki-laki, dan mask tetap menempel padanya. Di beberapa frame mask sedikit bocor ke area sekitar kaki, tanda keterbatasan model `tiny`.
 

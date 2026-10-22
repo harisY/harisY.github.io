@@ -14,5 +14,18 @@ github_username: harisY
 
 markdown: kramdown
 
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Gambar pratinjau default saat tautan dibagikan (og:image).
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/social-card.png
+
 exclude:
   - README.md
+  - LICENSE.md
