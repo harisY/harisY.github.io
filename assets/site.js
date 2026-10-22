@@ -1,26 +1,10 @@
-/* Peningkatan halaman tulisan: daftar isi, tautan antar-bagian, dan tombol salin kode.
-   Halaman tetap terbaca penuh tanpa skrip ini. */
+/* Peningkatan halaman tulisan: tautan antar-bagian dan tombol salin kode.
+   (Daftar isi dibuat saat build di _layouts/post.html.) Halaman tetap terbaca penuh tanpa skrip ini. */
 (function () {
   "use strict";
 
   var content = document.querySelector(".post-content");
   if (!content) return;
-
-  var sections = content.querySelectorAll("h2[id]");
-  var toc = document.getElementById("toc");
-
-  if (toc && sections.length >= 3) {
-    var list = toc.querySelector("ol");
-    sections.forEach(function (h) {
-      var item = document.createElement("li");
-      var link = document.createElement("a");
-      link.href = "#" + h.id;
-      link.textContent = h.textContent;
-      item.appendChild(link);
-      list.appendChild(item);
-    });
-    toc.hidden = false;
-  }
 
   content.querySelectorAll("h2[id], h3[id]").forEach(function (h) {
     var anchor = document.createElement("a");

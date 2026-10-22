@@ -37,7 +37,7 @@
 
   function render() {
     button.textContent = "Tema: " + LABEL[mode];
-    button.setAttribute("aria-label", "Ganti tema. Saat ini: " + LABEL[mode]);
+    button.setAttribute("aria-label", "Tema: " + LABEL[mode] + ". Klik untuk mengganti.");
   }
 
   button.hidden = false;

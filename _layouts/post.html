@@ -13,14 +13,24 @@ layout: default
     {%- include tags.html tags=page.tags -%}
   </header>
 
+  {%- assign toc_parts = content | split: '<h2 id="' -%}
+  {%- if toc_parts.size > 3 -%}
   <div class="wrap-read">
-    <nav class="toc" id="toc" aria-label="Daftar isi" hidden>
+    <nav class="toc" aria-label="Daftar isi">
       <details open>
         <summary>Daftar isi</summary>
-        <ol></ol>
+        <ol>
+          {%- for part in toc_parts offset: 1 -%}
+            {%- assign toc_head = part | split: '</h2>' | first -%}
+            {%- assign toc_id = toc_head | split: '">' | first -%}
+            {%- assign toc_title = toc_head | split: '">' | last | strip_html -%}
+          <li><a href="#{{ toc_id }}">{{ toc_title }}</a></li>
+          {%- endfor -%}
+        </ol>
       </details>
     </nav>
   </div>
+  {%- endif -%}
 
   <div class="wrap-read post-content e-content">
     {{ content }}
