@@ -1,6 +1,23 @@
 /* Catatan Computer Vision — gaya situs.
    Satu motif: grid patch ala ViT. Selebihnya sengaja tenang. */
 
+/* Font di-host sendiri (subset Latin). IBM Plex Sans dan Source Serif 4: SIL Open Font License 1.1. */
+@font-face {
+  font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url("fonts/plex-sans-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Serif 4"; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url("fonts/source-serif-4-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Serif 4"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("fonts/source-serif-4-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --bg: #f8f9fb;
   --surface: #ffffff;
@@ -71,7 +88,7 @@ img, svg { max-width: 100%; }
 /* Header */
 .site-header { border-bottom: 1px solid var(--rule); background: var(--bg); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 4rem; gap: 1rem; }
-.brand { display: inline-flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: 0.65rem; min-height: 2.75rem; text-decoration: none; }
 .brand-mark { width: 1.15rem; height: 1.15rem; flex-shrink: 0; }
 .brand-mark rect { fill: var(--ink); opacity: 0.28; }
 .brand-mark rect.hot { fill: var(--heat); opacity: 1; }
@@ -81,7 +98,7 @@ img, svg { max-width: 100%; }
   .site-nav { gap: 1rem; }
 }
 .site-nav { display: flex; gap: 1.5rem; }
-.site-nav a { color: var(--muted); text-decoration: none; padding: 0.25rem 0; border-bottom: 2px solid transparent; }
+.site-nav a { display: inline-block; color: var(--muted); text-decoration: none; padding: 0.7rem 0; border-bottom: 2px solid transparent; }
 .site-nav a:hover { color: var(--ink); }
 .site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
 
@@ -146,7 +163,7 @@ img, svg { max-width: 100%; }
 
 .tags { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tags li { font-size: 0.8rem; color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; }
-.tags a { display: block; padding: 0.1rem 0.55rem; color: inherit; text-decoration: none; }
+.tags a { display: block; padding: 0.3rem 0.65rem; color: inherit; text-decoration: none; }
 .tags li:hover { border-color: var(--accent); }
 .tags a:hover { color: var(--accent); }
 
@@ -157,12 +174,11 @@ img, svg { max-width: 100%; }
 .entry-title a { text-decoration: none; }
 .entry-title a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.18em; }
 .entry-desc { margin: 0; color: var(--muted); }
-.entry-note { margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--muted); }
 @media (min-width: 40rem) { .entry { grid-template-columns: 9rem 1fr; } }
 
 .author-strip { display: flex; align-items: center; gap: 1rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
 .author-strip p { margin: 0; color: var(--muted); }
-.avatar, .post-content .avatar { display: block; margin: 0; border-radius: 50%; flex-shrink: 0; object-fit: cover; }
+.avatar, .post-content .avatar { display: block; margin: 0; border: 0; border-radius: 50%; flex-shrink: 0; object-fit: cover; }
 
 /* Postingan dan halaman */
 .post-header { padding-top: 3rem; }
@@ -195,8 +211,8 @@ img, svg { max-width: 100%; }
 .highlight .s, .highlight .s1, .highlight .s2, .highlight .si, .highlight .sb { color: var(--tok-string); }
 .highlight .mi, .highlight .mf, .highlight .mh, .highlight .il { color: var(--tok-number); }
 .highlight .nb, .highlight .bp, .highlight .nf, .highlight .nc, .highlight .nn { color: var(--tok-name); }
-.post-content img { display: block; margin: 2rem auto 0.5rem; height: auto; border-radius: 6px; }
-.post-content a > img { display: inline-block; margin: 0; border-radius: 4px; vertical-align: middle; }
+.post-content img { display: block; margin: 2rem auto 0.5rem; height: auto; border-radius: 6px; border: 1px solid var(--rule); }
+.post-content a > img { display: inline-block; margin: 0; border: 0; border-radius: 4px; vertical-align: middle; }
 .post-content .caption { margin: 0 0 2rem; text-align: center; font-family: var(--font-ui); font-size: 0.85rem; color: var(--muted); }
 .post-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; font-family: var(--font-ui); font-size: 0.9rem; line-height: 1.45; }
 .post-content th, .post-content td { padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid var(--rule); }
@@ -230,7 +246,7 @@ img, svg { max-width: 100%; }
 .footer-brand { margin: 0 0 0.3rem; font-weight: 600; }
 .footer-desc { margin: 0; max-width: 24rem; color: var(--muted); font-size: 0.95rem; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; font-size: 0.95rem; }
-.footer-links a { color: var(--muted); text-decoration: none; }
+.footer-links a { display: inline-block; padding: 0.3rem 0; color: var(--muted); text-decoration: none; }
 .footer-links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 0.2em; }
 .footer-base { margin-top: 2rem; font-size: 0.85rem; color: var(--muted); }
 .footer-base p { margin: 0; }
@@ -261,7 +277,7 @@ img, svg { max-width: 100%; }
 .post-content h2:hover .anchor, .post-content h3:hover .anchor, .post-content .anchor:focus-visible { opacity: 1; }
 .post-content div.highlighter-rouge { position: relative; }
 .copy-btn {
-  position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.2rem 0.6rem;
+  position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.4rem 0.8rem;
   font: 500 0.75rem var(--font-ui); color: var(--muted); background: var(--bg);
   border: 1px solid var(--rule); border-radius: 4px; cursor: pointer;
 }
@@ -285,3 +301,17 @@ img, svg { max-width: 100%; }
 .post-content .post-meta { margin-left: 0.4rem; font-family: var(--font-ui); font-size: 0.85rem; color: var(--muted); }
 .topic-index { margin-bottom: 2rem; }
 .post-content .topic-index a { color: inherit; }
+
+/* Cetak: hanya isi tulisan, hitam di atas putih, tautan ditulis lengkap */
+@media print {
+  :root { --bg: #fff; --surface: #fff; --ink: #000; --muted: #333; --rule: #bbb; --accent: #000; }
+  body { background: #fff; color: #000; }
+  .site-header, .site-footer, .skip-link, .toc, .copy-btn, .anchor, .post-nav, .author-box, .hero-art, .hero-actions { display: none !important; }
+  .post-content { font-size: 11pt; line-height: 1.5; padding-top: 1rem; }
+  .post-content a { color: inherit; text-decoration: underline; }
+  .post-content a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; }
+  .post-content img, .post-content p > img { width: auto !important; max-width: 100% !important; margin: 1rem auto !important; break-inside: avoid; }
+  .post-content pre { white-space: pre-wrap; border-color: #999; }
+  .post-content h2, .post-content h3 { break-after: avoid; }
+  .post-content table, .post-content pre { break-inside: avoid; }
+}

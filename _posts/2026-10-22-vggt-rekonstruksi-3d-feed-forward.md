@@ -4,6 +4,7 @@ title: "Rekonstruksi 3D dalam Satu Forward Pass: Membedah VGGT, Best Paper CVPR 
 author: "Abdul Haris"
 date: 2026-10-22 07:00:00 +0700
 categories: [computer-vision]
+math: true
 tags: [3d-vision, vggt, transformer, structure-from-motion, feed-forward, cvpr-2025, paper-review]
 description: "Review VGGT, Best Paper CVPR 2025: satu transformer feed-forward yang memprediksi kamera, depth, point map, dan track 3D dari banyak gambar."
 ---

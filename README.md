@@ -7,7 +7,8 @@ Situs: https://harisy.github.io/
 
 - `_posts/` — tulisan, satu berkas per postingan (`YYYY-MM-DD-judul.md`)
 - `_layouts/` dan `_includes/` — tata letak sendiri (halaman depan, postingan, header, footer, grid patch di hero, MathJax)
-- `assets/site.css` — seluruh gaya situs (mode terang dan gelap otomatis)
+- `assets/site.css` — seluruh gaya situs (mode terang/gelap otomatis dan gaya cetak)
+- `assets/fonts/` — font self-hosted (IBM Plex Sans dan Source Serif 4, subset Latin)
 - `assets/images/` — diagram SVG, gambar hasil (WebP), favicon, dan kartu pratinjau sosial
 - `assets/site.js` — daftar isi, anchor judul, dan tombol salin kode di halaman tulisan
 - `arsip.md`, `404.html`, `robots.txt`, `LICENSE.md` — arsip per topik, halaman 404, robots, dan lisensi
