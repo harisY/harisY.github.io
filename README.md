@@ -1,15 +1,17 @@
 # Catatan Computer Vision
 
-Blog Jekyll (tema minima) berisi review paper Computer Vision untuk mata kuliah Advanced Computer Vision (S2).
+Blog Jekyll berisi review paper Computer Vision untuk mata kuliah Advanced Computer Vision (S2).
 Situs: https://harisy.github.io/
 
 ## Isi repo
 
 - `_posts/` — tulisan, satu berkas per postingan (`YYYY-MM-DD-judul.md`)
+- `_layouts/` dan `_includes/` — tata letak sendiri (halaman depan, postingan, header, footer, grid patch di hero, MathJax)
+- `assets/site.css` — seluruh gaya situs (mode terang dan gelap otomatis)
 - `assets/images/` — gambar buatan sendiri (diagram SVG)
-- `_includes/` — `head.html` + `custom-head.html` (MathJax) dan `footer.html` (kartu profil penulis)
+- `_data/other_writing.yml` — tulisan di blog terpisah yang ikut tampil di daftar
 - `about.md` — halaman profil penulis (`/tentang/`)
-- `_config.yml`, `index.md` — konfigurasi dan halaman depan
+- `_config.yml`, `index.md` — konfigurasi dan teks hero halaman depan
 
 ## Tulisan
 

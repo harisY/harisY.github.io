@@ -1,0 +1,63 @@
+---
+layout: default
+---
+{%- assign latest = site.posts.first -%}
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <h1 class="hero-title">{{ page.hero_title }}</h1>
+      <p class="hero-lead">{{ page.hero_lead }}</p>
+      <p class="hero-actions">
+        {%- if latest -%}<a class="button" href="#terbaru">Baca tulisan terbaru</a>{%- endif -%}
+        <a class="text-link" href="{{ '/tentang/' | relative_url }}">Tentang penulis</a>
+      </p>
+    </div>
+    <div class="hero-art">{%- include patch-grid.html -%}</div>
+  </div>
+</section>
+
+{%- if latest -%}
+<section class="wrap section" id="terbaru" aria-labelledby="terbaru-judul">
+  <h2 class="section-title" id="terbaru-judul">Tulisan terbaru</h2>
+  <article class="featured">
+    <p class="entry-meta">
+      {%- include date-id.html date=latest.date -%}, {% include reading-time.html content=latest.content -%}
+    </p>
+    <h3 class="featured-title"><a href="{{ latest.url | relative_url }}">{{ latest.title | escape }}</a></h3>
+    <p class="featured-desc">{{ latest.description | escape }}</p>
+    {%- include tags.html tags=latest.tags -%}
+    <p><a class="button" href="{{ latest.url | relative_url }}">Baca tulisan</a></p>
+  </article>
+</section>
+{%- endif -%}
+
+<section class="wrap section" aria-labelledby="lainnya-judul">
+  <h2 class="section-title" id="lainnya-judul">Tulisan lainnya</h2>
+  <ul class="entry-list">
+    {%- for post in site.posts offset: 1 -%}
+    <li class="entry">
+      <p class="entry-date">{%- include date-id.html date=post.date -%}</p>
+      <div class="entry-body">
+        <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+        <p class="entry-desc">{{ post.description | escape }}</p>
+      </div>
+    </li>
+    {%- endfor -%}
+    {%- for item in site.data.other_writing -%}
+    <li class="entry">
+      <p class="entry-date">{%- include date-id.html date=item.date -%}</p>
+      <div class="entry-body">
+        <h3 class="entry-title"><a href="{{ item.url }}">{{ item.title | escape }}</a></h3>
+        <p class="entry-desc">{{ item.description | escape }}</p>
+        <p class="entry-note">Blog terpisah, dibuka di halaman lain.</p>
+      </div>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+<section class="wrap section author-strip">
+  <img class="avatar" src="https://github.com/{{ site.github_username }}.png?size=120" alt="Foto profil {{ site.author.name }}" width="56" height="56" loading="lazy">
+  <p>Ditulis oleh <strong>{{ site.author.name }}</strong>, mahasiswa S2 TI UNPAM. <a href="{{ '/tentang/' | relative_url }}">Lihat profil</a>.</p>
+</section>

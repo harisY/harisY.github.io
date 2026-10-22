@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="post h-entry">
+  <header class="wrap-read post-header">
+    <p class="entry-meta">
+      {%- include date-id.html date=page.date -%}, {% include reading-time.html content=content -%}
+    </p>
+    <h1 class="post-title p-name">{{ page.title | escape }}</h1>
+    {%- if page.description -%}<p class="post-standfirst">{{ page.description | escape }}</p>{%- endif -%}
+    {%- include tags.html tags=page.tags -%}
+  </header>
+
+  <div class="wrap-read post-content e-content">
+    {{ content }}
+  </div>
+
+  <footer class="wrap-read post-end">
+    <div class="author-box">
+      <img class="avatar" src="https://github.com/{{ site.github_username }}.png?size=160" alt="Foto profil {{ site.author.name }}" width="64" height="64" loading="lazy">
+      <div>
+        <p class="author-box-name"><a href="{{ '/tentang/' | relative_url }}">{{ site.author.name }}</a></p>
+        <p class="author-box-bio">Mahasiswa S2 TI UNPAM. Menulis catatan dari mata kuliah Advanced Computer Vision untuk teman-teman sesama mahasiswa.</p>
+      </div>
+    </div>
+    <p><a class="text-link" href="{{ '/' | relative_url }}">Semua tulisan</a></p>
+  </footer>
+</article>

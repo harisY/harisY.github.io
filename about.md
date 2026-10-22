@@ -1,15 +1,15 @@
 ---
 layout: page
-title: Tentang Penulis
+title: Tentang penulis
 permalink: /tentang/
 ---
 
 <div class="profile-header">
-  <img class="author-avatar profile-avatar" src="https://github.com/harisY.png?size=240" alt="Foto profil Abdul Haris" width="120" height="120">
+  <img class="avatar profile-avatar" src="https://github.com/harisY.png?size=240" alt="Foto profil Abdul Haris" width="120" height="120">
   <div>
     <p class="profile-name">Abdul Haris</p>
     <p class="profile-role">Mahasiswa S2 TI UNPAM</p>
-    <p class="profile-links"><a href="https://github.com/harisY">GitHub</a> &middot; <a href="https://github.com/harisY/harisY.github.io">Repositori blog ini</a></p>
+    <p><a href="https://github.com/harisY">GitHub</a> dan <a href="https://github.com/harisY/harisY.github.io">repositori blog ini</a></p>
   </div>
 </div>
 
@@ -19,9 +19,11 @@ Saya menulis catatan dan tutorial dari mata kuliah Advanced Computer Vision untu
 
 <ul class="profile-posts">
 {%- for post in site.posts -%}
-  <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a> <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span></li>
+  <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a> <span class="post-meta">{% include date-id.html date=post.date %}</span></li>
 {%- endfor -%}
-  <li><a href="https://harisy.github.io/acv-sam2-blog/">Dari “Klik Objeknya” ke “Sebut Namanya”: Perjalanan SAM 2 menuju SAM 3</a> <span class="post-meta">2026-10-21</span></li>
+{%- for item in site.data.other_writing -%}
+  <li><a href="{{ item.url }}">{{ item.title | escape }}</a> <span class="post-meta">{% include date-id.html date=item.date %}, blog terpisah</span></li>
+{%- endfor -%}
 </ul>
 
 ## Kontak

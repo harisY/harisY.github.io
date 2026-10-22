@@ -12,9 +12,6 @@ author:
 
 github_username: harisY
 
-header_pages:
-  - about.md
-
 markdown: kramdown
 
 exclude:
