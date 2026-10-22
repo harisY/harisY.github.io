@@ -65,7 +65,11 @@ img, svg { max-width: 100%; }
 .brand-mark { width: 1.15rem; height: 1.15rem; flex-shrink: 0; }
 .brand-mark rect { fill: var(--ink); opacity: 0.28; }
 .brand-mark rect.hot { fill: var(--heat); opacity: 1; }
-.brand-name { font-weight: 600; letter-spacing: -0.01em; }
+.brand-name { font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }
+@media (max-width: 30rem) {
+  .brand-name { font-size: 0.9rem; }
+  .site-nav { gap: 1rem; }
+}
 .site-nav { display: flex; gap: 1.5rem; }
 .site-nav a { color: var(--muted); text-decoration: none; padding: 0.25rem 0; border-bottom: 2px solid transparent; }
 .site-nav a:hover { color: var(--ink); }
@@ -145,7 +149,7 @@ img, svg { max-width: 100%; }
 
 .author-strip { display: flex; align-items: center; gap: 1rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
 .author-strip p { margin: 0; color: var(--muted); }
-.avatar { border-radius: 50%; flex-shrink: 0; object-fit: cover; }
+.avatar, .post-content .avatar { display: block; margin: 0; border-radius: 50%; flex-shrink: 0; object-fit: cover; }
 
 /* Postingan dan halaman */
 .post-header { padding-top: 3rem; }
@@ -191,7 +195,7 @@ img, svg { max-width: 100%; }
 /* Halaman profil */
 .profile-header { display: flex; align-items: center; gap: 1.25rem; margin: 0 0 2rem; font-family: var(--font-ui); }
 .profile-header p { margin: 0 0 0.25rem; }
-.profile-avatar { width: 7.5rem; height: 7.5rem; margin: 0; }
+.profile-avatar, .post-content .profile-avatar { width: 7.5rem; height: 7.5rem; }
 .profile-name { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.015em; }
 .profile-role { color: var(--muted); }
 .profile-posts { list-style: none; padding: 0; }
