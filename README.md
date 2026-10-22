@@ -17,5 +17,6 @@ Situs: https://harisy.github.io/
 
 - Review VGGT: Visual Geometry Grounded Transformer (CVPR 2025)
 - Dari “Klik Objeknya” ke “Sebut Namanya”: Perjalanan SAM 2 menuju SAM 3 (review, tutorial, ide riset)
+- Fine-tuning Vision Transformer (ViT) untuk klasifikasi ras kucing dan anjing (tutorial; kode dan notebook ada di repo [vit-pets-finetune](https://github.com/harisY/vit-pets-finetune))
 
 PDF paper tidak disertakan di repo; lihat tautan resmi di tiap tulisan.
