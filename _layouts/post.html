@@ -42,16 +42,16 @@ layout: default
 
     {%- if page.previous or page.next -%}
     <nav class="post-nav" aria-label="Tulisan lain">
-      {%- if page.previous -%}
-      <a class="post-nav-link" href="{{ page.previous.url | relative_url }}">
-        <span class="post-nav-label">Lebih baru</span>
-        <span class="post-nav-title">{{ page.previous.title | escape }}</span>
-      </a>
-      {%- endif -%}
       {%- if page.next -%}
       <a class="post-nav-link" href="{{ page.next.url | relative_url }}">
-        <span class="post-nav-label">Lebih lama</span>
+        <span class="post-nav-label">Lebih baru</span>
         <span class="post-nav-title">{{ page.next.title | escape }}</span>
+      </a>
+      {%- endif -%}
+      {%- if page.previous -%}
+      <a class="post-nav-link" href="{{ page.previous.url | relative_url }}">
+        <span class="post-nav-label">Lebih lama</span>
+        <span class="post-nav-title">{{ page.previous.title | escape }}</span>
       </a>
       {%- endif -%}
     </nav>
