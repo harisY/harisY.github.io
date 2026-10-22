@@ -119,7 +119,7 @@ img, svg { max-width: 100%; }
 .section-title::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 
 .entry-meta { display: flex; flex-wrap: wrap; align-items: center; margin: 0 0 0.6rem; font-size: 0.9rem; color: var(--muted); }
-.entry-read { margin-left: 0.8rem; padding-left: 0.8rem; border-left: 1px solid var(--rule); line-height: 1.2; }
+.entry-read { margin-left: 0.8rem; padding-left: 0.8rem; border-left: 1px solid var(--muted); line-height: 1.2; }
 
 .featured { max-width: 46rem; }
 .featured-title {
@@ -170,7 +170,7 @@ img, svg { max-width: 100%; }
 .post-content code { font-size: 0.85em; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 0.05em 0.35em; }
 .post-content pre { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 1rem; font-size: 0.85rem; }
 .post-content pre code { border: 0; padding: 0; background: none; }
-.post-content img { display: block; margin: 2rem auto 0.5rem; height: auto; }
+.post-content img { display: block; margin: 2rem auto 0.5rem; height: auto; border-radius: 6px; }
 .post-content .caption { margin: 0 0 2rem; text-align: center; font-family: var(--font-ui); font-size: 0.85rem; color: var(--muted); }
 .post-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; font-family: var(--font-ui); font-size: 0.9rem; line-height: 1.45; }
 .post-content th, .post-content td { padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid var(--rule); }

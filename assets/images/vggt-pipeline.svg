@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 395" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
   <title id="t">Alur kerja VGGT dari gambar input ke atribut 3D</title>
   <desc id="d">N gambar input dipecah menjadi token oleh DINO, ditambah camera token dan register token, lalu diproses 24 lapis alternating-attention yang bergantian antara frame-wise dan global self-attention. Keluarannya masuk ke camera head yang menghasilkan parameter kamera dan DPT head yang menghasilkan depth map, point map, dan fitur untuk modul tracking.</desc>
   <defs>
@@ -6,7 +6,7 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#374151"/>
     </marker>
   </defs>
-  <rect width="980" height="420" fill="#ffffff"/>
+  <rect width="980" height="395" fill="#ffffff"/>
 
   <g stroke="#374151" stroke-width="1.6" fill="none" marker-end="url(#ar)">
     <path d="M130,210 H158"/>
@@ -66,5 +66,4 @@
     <text x="905" y="368" font-size="12">tracking</text>
   </g>
 
-  <text x="20" y="400" font-size="12" fill="#6b7280">Diagram buatan sendiri berdasarkan Gambar 2 dan Bagian 3 paper (Wang dkk., 2025); bukan gambar asli paper.</text>
 </svg>
