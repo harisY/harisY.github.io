@@ -8,5 +8,6 @@
     {{ content }}
   </main>
   {%- include footer.html -%}
+  <script src="{{ '/assets/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </body>
 </html>

@@ -32,6 +32,10 @@ layout: default
       <p>{{ site.author.name }}. ({{ page.date | date: "%Y" }}). <em>{{ page.title | escape }}</em>. {{ site.title | escape }}. {{ page.url | absolute_url }}</p>
     </details>
 
+    {%- capture issue_title -%}Masukan: {{ page.title }}{%- endcapture -%}
+    {%- capture issue_body -%}Tulisan: {{ page.url | absolute_url }}{%- endcapture -%}
+    <p class="feedback">Menemukan kesalahan atau punya masukan? <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/issues/new?title={{ issue_title | cgi_escape }}&amp;body={{ issue_body | cgi_escape }}">Kirim lewat GitHub</a> (perlu akun GitHub).</p>
+
     <div class="author-box">
       <img class="avatar" src="https://github.com/{{ site.github_username }}.png?size=160" alt="Foto profil {{ site.author.name }}" width="64" height="64" loading="lazy">
       <div>

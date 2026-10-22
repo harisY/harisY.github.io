@@ -38,8 +38,13 @@
   --read: 41rem;
 }
 
+/* Tema gelap: otomatis mengikuti perangkat, kecuali pembaca memilih sendiri lewat tombol di footer
+   (disimpan sebagai data-theme="light" atau "dark" pada <html>). Dua blok di bawah harus sama. */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0c111d;
     --surface: #121a2b;
     --ink: #e6eaf2;
@@ -54,6 +59,22 @@
     --tok-number: #ffb45e;
     --tok-name: #8ea2ff;
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0c111d;
+  --surface: #121a2b;
+  --ink: #e6eaf2;
+  --muted: #9aa6bd;
+  --rule: #25304a;
+  --accent: #8ea2ff;
+  --on-accent: #0c111d;
+  --heat: #ff8a5c;
+  --tok-comment: #8591a8;
+  --tok-keyword: #ff8f87;
+  --tok-string: #6fd9a2;
+  --tok-number: #ffb45e;
+  --tok-name: #8ea2ff;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -303,11 +324,38 @@ img, svg { max-width: 100%; }
 .topic-index { margin-bottom: 2rem; }
 .post-content .topic-index a { color: inherit; }
 
+/* Tombol tema, pencarian, dan masukan */
+.footer-base { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+.theme-toggle {
+  min-height: 2.75rem; padding: 0.5rem 0.9rem; font: 500 0.85rem var(--font-ui); color: var(--muted);
+  background: none; border: 1px solid var(--rule); border-radius: 6px; cursor: pointer;
+}
+.theme-toggle:hover { color: var(--ink); border-color: var(--muted); }
+.theme-toggle[hidden] { display: none; }
+
+.search { margin: 0 0 0.5rem; font-family: var(--font-ui); }
+.search label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
+.search input {
+  width: 100%; min-height: 2.75rem; padding: 0.6rem 0.9rem; font: inherit; font-size: 1rem;
+  color: var(--ink); background: var(--surface); border: 1px solid var(--muted); border-radius: 6px;
+}
+.search input::placeholder { color: var(--muted); }
+.search-status { min-height: 1.5rem; margin: 0 0 1rem; font-family: var(--font-ui); font-size: 0.9rem; color: var(--muted); }
+.cari-list { list-style: none; margin: 0 0 2rem; padding: 0; }
+.cari-list li { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.cari-list li > a { font-family: var(--font-ui); font-weight: 600; }
+.cari-list p { margin: 0.4rem 0 0; font-size: 0.95rem; color: var(--muted); }
+.post-content mark { color: inherit; background: color-mix(in srgb, var(--accent) 22%, transparent); border-radius: 2px; padding: 0 0.1em; }
+.post-content [hidden] { display: none; }
+
+.feedback { margin: 0 0 1.5rem; font-size: 0.95rem; color: var(--muted); }
+.feedback a { color: var(--accent); text-underline-offset: 0.2em; }
+
 /* Cetak: hanya isi tulisan, hitam di atas putih, tautan ditulis lengkap */
 @media print {
   :root { --bg: #fff; --surface: #fff; --ink: #000; --muted: #333; --rule: #bbb; --accent: #000; }
   body { background: #fff; color: #000; }
-  .site-header, .site-footer, .skip-link, .toc, .copy-btn, .anchor, .post-nav, .author-box, .hero-art, .hero-actions { display: none !important; }
+  .site-header, .site-footer, .skip-link, .toc, .search, .search-status, .feedback, .copy-btn, .anchor, .post-nav, .author-box, .hero-art, .hero-actions { display: none !important; }
   .post-content { font-size: 11pt; line-height: 1.5; padding-top: 1rem; }
   .post-content a { color: inherit; text-decoration: underline; }
   .post-content a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; }
