@@ -1,4 +1,4 @@
-/* Tombol tema di footer: Otomatis (ikut perangkat) -> Terang -> Gelap.
+/* Tombol tema di header: Otomatis (ikut perangkat) -> Terang -> Gelap.
    Pilihan disimpan di localStorage. Penerapan awal dilakukan oleh skrip kecil di <head>
    supaya tidak ada kilatan warna. */
 (function () {
@@ -36,7 +36,8 @@
   var mode = read();
 
   function render() {
-    button.textContent = "Tema: " + LABEL[mode];
+    button.dataset.mode = mode;
+    button.title = "Tema: " + LABEL[mode] + " (klik untuk mengganti)";
     button.setAttribute("aria-label", "Tema: " + LABEL[mode] + ". Klik untuk mengganti.");
   }
 

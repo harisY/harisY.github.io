@@ -11,7 +11,7 @@ Situs: https://harisy.github.io/
 - `assets/fonts/` — font self-hosted (IBM Plex Sans dan Source Serif 4, subset Latin)
 - `assets/images/` — diagram SVG, gambar hasil (WebP), favicon, dan kartu pratinjau sosial
 - `assets/site.js` — anchor judul dan tombol salin kode di halaman tulisan (daftar isi dibuat saat build)
-- `assets/theme.js` (tombol tema di footer), `assets/search.js` + `search.json` (pencarian di halaman Arsip)
+- `assets/theme.js` (tombol tema di header), `assets/search.js` + `search.json` (pencarian di halaman Arsip)
 - `arsip.md`, `404.html`, `robots.txt`, `LICENSE.md` — arsip per topik, halaman 404, robots, dan lisensi
 - `notebook/` — notebook tutorial SAM 2.1 (bisa dibuka di Colab)
 - `about.md` — halaman profil penulis (`/tentang/`)
