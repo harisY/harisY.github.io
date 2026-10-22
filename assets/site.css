@@ -281,5 +281,7 @@ img, svg { max-width: 100%; }
 /* Halaman 404 dan arsip */
 .error-page { padding-top: 4rem; padding-bottom: 4rem; }
 .error-page p { margin: 0 0 1.5rem; }
+.error-page .text-link { margin-left: 1.25rem; }
+.post-content .post-meta { margin-left: 0.4rem; font-family: var(--font-ui); font-size: 0.85rem; color: var(--muted); }
 .topic-index { margin-bottom: 2rem; }
 .post-content .topic-index a { color: inherit; }
