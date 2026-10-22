@@ -8,7 +8,7 @@ permalink: /arsip/
 
 <form class="search" id="cari" role="search">
   <label for="cari-input">Cari tulisan</label>
-  <input id="cari-input" type="search" data-index="{{ '/search.json' | relative_url }}" placeholder="Misalnya: ViT, segmentasi, bundle adjustment" autocomplete="off" spellcheck="false">
+  <input id="cari-input" type="search" data-index="{{ '/search.json' | relative_url }}" placeholder="Misalnya: ViT atau segmentasi" autocomplete="off" spellcheck="false">
 </form>
 <p class="search-status" id="cari-status" role="status" aria-live="polite"></p>
 <div id="cari-hasil"></div>

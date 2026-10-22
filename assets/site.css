@@ -319,7 +319,7 @@ img, svg { max-width: 100%; }
 /* Tombol tema di header kanan atas: ikon sesuai mode (otomatis, terang, gelap). */
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
-  width: 2.75rem; height: 2.75rem; margin-left: 0.5rem; padding: 0; color: var(--muted);
+  width: 2.75rem; height: 2.75rem; margin: 0 -0.55rem 0 0.5rem; padding: 0; color: var(--muted);
   background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer;
 }
 .theme-toggle:hover { color: var(--ink); border-color: var(--rule); }
@@ -333,7 +333,7 @@ img, svg { max-width: 100%; }
 @media (max-width: 36rem) {
   .header-inner { flex-wrap: wrap; }
   .brand { order: 1; }
-  .theme-toggle { order: 2; margin-left: auto; margin-right: -0.55rem; }
+  .theme-toggle { order: 2; margin-left: auto; }
   .site-nav { order: 3; width: 100%; margin-left: 0; gap: 1.5rem; }
 }
 
