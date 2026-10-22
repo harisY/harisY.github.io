@@ -45,9 +45,9 @@ Menurut paper:
 ![Alur kerja VGGT]({{ "/assets/images/vggt-pipeline.svg" | relative_url }})
 <p class="caption">Diagram buatan saya berdasarkan Gambar 2 paper, bukan gambar asli paper.</p>
 
-**Versi teknis.** Inputnya barisan gambar $$(I_1,\$$dots,I_N$$). Untuk tiap gambar, jaringan memprediksi parameter kamera \$$(g_i$$in\$$mathbb{R}^9$$) (kuaternion rotasi, translasi, dan *field of view*), depth map \$$(D_i$$), point map \$$(P_i$$), serta peta fitur \$$(T_i\) untuk tracking (Persamaan 1 paper):
+**Versi teknis.** Inputnya barisan gambar $$I_1,\dots,I_N$$. Untuk tiap gambar, jaringan memprediksi parameter kamera $$g_i\in\mathbb{R}^9$$ (kuaternion rotasi, translasi, dan *field of view*), depth map $$D_i$$, point map $$P_i$$, serta peta fitur $$T_i$$ untuk tracking (Persamaan 1 paper):
 
-$$f$$big((I_i)_{i=1}^{N}\$$big) = (g_i, D_i, P_i, T_i)_{i=1}^{N}$$
+$$f\big((I_i)_{i=1}^{N}\big) = (g_i, D_i, P_i, T_i)_{i=1}^{N}$$
 
 Hal-hal pentingnya:
 
