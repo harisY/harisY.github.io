@@ -1,0 +1,15 @@
+# Paper dan berkas besar tidak boleh masuk repo
+*.pdf
+
+# Hasil build dan cache Jekyll
+_site/
+.jekyll-cache/
+.sass-cache/
+Gemfile.lock
+
+# Berkas sementara
+*.tmp
+*.log
+*.bak
+.DS_Store
+Thumbs.db

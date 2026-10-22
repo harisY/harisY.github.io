@@ -1,0 +1,16 @@
+title: Catatan Computer Vision
+description: Review paper Computer Vision tingkat lanjut untuk teman-teman mahasiswa S2.
+lang: id
+theme: minima
+timezone: Asia/Jakarta
+
+url: "https://harisy.github.io"   # username ditulis huruf kecil semua
+baseurl: ""                       # repo USERNAME.github.io dilayani dari root
+
+author:
+  name: Abdul Haris
+
+markdown: kramdown
+
+exclude:
+  - README.md
