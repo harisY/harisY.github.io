@@ -21,9 +21,6 @@ Saya menulis catatan dan tutorial dari mata kuliah Advanced Computer Vision untu
 {%- for post in site.posts -%}
   <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a> <span class="post-meta">{% include date-id.html date=post.date %}</span></li>
 {%- endfor -%}
-{%- for item in site.data.other_writing -%}
-  <li><a href="{{ item.url }}">{{ item.title | escape }}</a> <span class="post-meta">{% include date-id.html date=item.date %}, blog terpisah</span></li>
-{%- endfor -%}
 </ul>
 
 ## Kontak

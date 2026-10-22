@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+  <title id="t">Alur kerja SAM 2 pada satu frame video</title>
+  <desc id="d">Frame masuk ke image encoder Hiera, lalu memory attention yang membaca memory bank, kemudian mask decoder yang juga menerima prompt, menghasilkan mask dan skor oklusi. Mask dikodekan kembali oleh memory encoder dan disimpan ke memory bank.</desc>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#374151"/>
+    </marker>
+  </defs>
+  <rect width="820" height="400" fill="#ffffff"/>
+  <g stroke="#374151" stroke-width="1.6" fill="none" marker-end="url(#ar)">
+    <path d="M118,110 H158"/>
+    <path d="M290,110 H338"/>
+    <path d="M470,110 H518"/>
+    <path d="M650,110 H688"/>
+    <path d="M585,60 V78"/>
+    <path d="M585,140 V198"/>
+    <path d="M518,230 H292"/>
+    <path d="M230,198 V170 H405 V142" stroke-dasharray="5 4"/>
+  </g>
+  <g font-size="14" text-anchor="middle" fill="#111827">
+    <rect x="20" y="85" width="98" height="50" rx="8" fill="#e0f2fe" stroke="#0369a1"/>
+    <text x="69" y="115">Frame t</text>
+
+    <rect x="160" y="80" width="130" height="60" rx="8" fill="#dbeafe" stroke="#1d4ed8"/>
+    <text x="225" y="106">Image encoder</text>
+    <text x="225" y="125" font-size="12">(Hiera, MAE)</text>
+
+    <rect x="340" y="80" width="130" height="60" rx="8" fill="#dbeafe" stroke="#1d4ed8"/>
+    <text x="405" y="106">Memory</text>
+    <text x="405" y="125">attention</text>
+
+    <rect x="520" y="80" width="130" height="60" rx="8" fill="#dcfce7" stroke="#15803d"/>
+    <text x="585" y="106">Mask decoder</text>
+    <text x="585" y="125" font-size="12">+ head oklusi</text>
+
+    <rect x="690" y="75" width="110" height="70" rx="8" fill="#fef9c3" stroke="#a16207"/>
+    <text x="745" y="103">Mask frame t</text>
+    <text x="745" y="122" font-size="12">+ skor oklusi</text>
+
+    <rect x="520" y="10" width="130" height="50" rx="8" fill="#fce7f3" stroke="#be185d"/>
+    <text x="585" y="32">Prompt encoder</text>
+    <text x="585" y="50" font-size="12">klik / box / mask</text>
+
+    <rect x="520" y="200" width="130" height="60" rx="8" fill="#dcfce7" stroke="#15803d"/>
+    <text x="585" y="226">Memory encoder</text>
+    <text x="585" y="245" font-size="12">(fitur + mask)</text>
+
+    <rect x="170" y="200" width="120" height="50" rx="8" fill="#ede9fe" stroke="#6d28d9"/>
+    <text x="230" y="222">Memory bank</text>
+    <text x="230" y="240" font-size="12">FIFO + object ptr</text>
+  </g>
+  <g font-size="12" fill="#374151" text-anchor="middle">
+    <text x="405" y="222">simpan memori frame ini</text>
+    <text x="318" y="164">dibaca untuk frame berikutnya</text>
+  </g>
+  <text x="410" y="375" font-size="13" fill="#4b5563" text-anchor="middle">Ilustrasi sederhana buatan penulis, disarikan dari deskripsi arsitektur di Ravi dkk. (2025).</text>
+</svg>

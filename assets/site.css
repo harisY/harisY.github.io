@@ -10,6 +10,11 @@
   --accent: #2447f5;
   --on-accent: #ffffff;
   --heat: #ff6b3d;
+  --tok-comment: #6b7688;
+  --tok-keyword: #b3261e;
+  --tok-string: #0b7a4b;
+  --tok-number: #a45a00;
+  --tok-name: #2447f5;
   --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-read: "Source Serif 4", Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
   --wrap: 68rem;
@@ -26,6 +31,11 @@
     --accent: #8ea2ff;
     --on-accent: #0c111d;
     --heat: #ff8a5c;
+    --tok-comment: #8591a8;
+    --tok-keyword: #ff8f87;
+    --tok-string: #6fd9a2;
+    --tok-number: #ffb45e;
+    --tok-name: #8ea2ff;
   }
 }
 
@@ -174,7 +184,16 @@ img, svg { max-width: 100%; }
 .post-content code { font-size: 0.85em; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 0.05em 0.35em; }
 .post-content pre { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 1rem; font-size: 0.85rem; }
 .post-content pre code { border: 0; padding: 0; background: none; }
+.post-content div.highlighter-rouge { margin: 0 0 1.5rem; }
+.post-content .highlight pre { margin: 0; line-height: 1.55; }
+/* Warna sintaks (Rouge) mengikuti tema terang/gelap. */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: var(--tok-comment); font-style: italic; }
+.highlight .k, .highlight .kn, .highlight .kd, .highlight .kc, .highlight .kr, .highlight .ow { color: var(--tok-keyword); }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .si, .highlight .sb { color: var(--tok-string); }
+.highlight .mi, .highlight .mf, .highlight .mh, .highlight .il { color: var(--tok-number); }
+.highlight .nb, .highlight .bp, .highlight .nf, .highlight .nc, .highlight .nn { color: var(--tok-name); }
 .post-content img { display: block; margin: 2rem auto 0.5rem; height: auto; border-radius: 6px; }
+.post-content a > img { display: inline-block; margin: 0; border-radius: 4px; vertical-align: middle; }
 .post-content .caption { margin: 0 0 2rem; text-align: center; font-family: var(--font-ui); font-size: 0.85rem; color: var(--muted); }
 .post-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; font-family: var(--font-ui); font-size: 0.9rem; line-height: 1.45; }
 .post-content th, .post-content td { padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid var(--rule); }

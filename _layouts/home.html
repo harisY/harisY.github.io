@@ -42,16 +42,7 @@ layout: default
       <div class="entry-body">
         <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
         <p class="entry-desc">{{ post.description | escape }}</p>
-      </div>
-    </li>
-    {%- endfor -%}
-    {%- for item in site.data.other_writing -%}
-    <li class="entry">
-      <p class="entry-date">{%- include date-id.html date=item.date -%}</p>
-      <div class="entry-body">
-        <h3 class="entry-title"><a href="{{ item.url }}">{{ item.title | escape }}</a></h3>
-        <p class="entry-desc">{{ item.description | escape }}</p>
-        <p class="entry-note">Blog terpisah, dibuka di halaman lain.</p>
+        {%- include tags.html tags=post.tags -%}
       </div>
     </li>
     {%- endfor -%}
